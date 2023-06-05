@@ -5,7 +5,7 @@ const webSocket = new socket.Server({ port: 5555 });
 webSocket.on("connection", ws => {
     console.log("connected!");
     ws.on("message", message => {
-        webSocket.broadcast(JSON.stringify({func:message}));
+        webSocket.broadcast(message);
     });
 });
 

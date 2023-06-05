@@ -7,16 +7,17 @@
     <title>WebsocketTest CC:Tweaked</title>
 </head>
 <body>
-    <button id="testbtn" onclick="sendCommand()" data-command="">Test</button>
+    <button id="testbtn" onclick="sendCommand(this)" data-command="">Test</button>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <script> 
         const ws = new WebSocket("wss://silly.media/wss/");
-        ws.onopen = function() {
-            ws.send("print('Web Connected to websocket!')");
-        };
-        function sendCommand() {
-            ws.send("return print('Test ontvangen')");
+        function sendCommand(el) {
+            var content = $(el).attr("data-command");
+            ws.send(JSON.stringify({
+                "type": "command",
+                "content":content
+            }));
         }
         ws.addEventListener("message", function(event) {
             console.log(event.data);
