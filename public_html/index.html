@@ -7,15 +7,17 @@
     <title>WebsocketTest CC:Tweaked</title>
 </head>
 <body>
-    
-<script> 
-    var ws = new WebSocket("ws://silly.media:5555");
-    ws.onopen = function() {
-        ws.send("Hello, world");
-    };
-    ws.onmessage = function (evt) {
-        alert(evt.data);
-    };
-</script>
+    <button onclick="sendCommand()" data-command="WebTest"></button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script> 
+        const ws = new WebSocket("wss://silly.media/wss");
+        ws.onopen = function() {
+            ws.send("Web connected");
+        };
+        function sendCommand() {
+            ws.send($(this).attr("data-command").value);
+        }
+    </script>
 </body>
 </html>
