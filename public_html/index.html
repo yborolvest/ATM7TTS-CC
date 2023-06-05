@@ -13,7 +13,7 @@
     <script> 
         const ws = new WebSocket("wss://silly.media/wss/");
         ws.onopen = function() {
-            ws.send("Web connected");
+            ws.send("print('Web Connected to websocket!')");
         };
         function sendCommand(el) {
             ws.send("return " + $(el).attr("data-command"));
