@@ -3,10 +3,10 @@ var clients = [];
 const webSocket = new socket.Server({ port: 5555 });
 
 webSocket.on("connection", ws => {
-    console.log("connected!")
+    console.log("connected!");
     ws.on("message", message => {
-        ws.broadcast(JSON.stringify({func:message}));
-    })
+        webSocket.broadcast(JSON.stringify({func:message}));
+    });
 });
 
 webSocket.broadcast = function broadcast(message) {
