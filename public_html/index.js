@@ -9,9 +9,9 @@ webSocket.on('connection', wsClient => {
     wsClient.on('message', messageData => {
         console.log('Message received: ' + messageData);
         clients.forEach(client => {
-            client.send(messageData.toString());
+            client.send(messageData);
         });
-    })
+    });
     wsClient.on('close', () => {
         console.log('Client disconnected');
         clients.splice(clients.indexOf(wsClient), 1);

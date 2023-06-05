@@ -7,7 +7,7 @@
     <title>WebsocketTest CC:Tweaked</title>
 </head>
 <body>
-    <button id="testbtn" onclick="sendCommand(this)" data-command="WebTest">Test</button>
+    <button id="testbtn" onclick="sendCommand(this)" data-command="print('Test ontvangen')">Test</button>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <script> 
@@ -16,7 +16,7 @@
             ws.send("Web connected");
         };
         function sendCommand(el) {
-            ws.send($(el).attr("data-command"));
+            ws.send("return " + $(el).attr("data-command"));
         }
     </script>
 </body>
