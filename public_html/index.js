@@ -11,8 +11,8 @@ webSocket.on("connection", ws => {
 
 webSocket.broadcast = function broadcast(message) {
     webSocket.clients.forEach(function each(client) {
-        //if (client.readyState === socket.OPEN) {
+        if (client.readyState === socket.OPEN) {
             client.send(message);
-        //}
+        }
     })
 };
