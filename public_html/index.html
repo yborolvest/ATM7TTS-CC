@@ -11,7 +11,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <script> 
-        const ws = new WebSocket("wss://silly.media/wss");
+        const ws = new WebSocket("wss://silly.media/wss/");
         ws.onopen = function() {
             ws.send("Web connected");
         };
