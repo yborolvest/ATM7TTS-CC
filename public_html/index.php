@@ -9,7 +9,7 @@
 <body>
     
 <script> 
-    var ws = new WebSocket("ws://localhost:5555");
+    let ws = new WebSocket("ws://silly.media:5555");
     ws.onopen = function() {
         ws.send("Hello, world");
     };
