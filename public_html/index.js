@@ -9,7 +9,7 @@ webSocket.on('connection', wsClient => {
     wsClient.on('message', messageData => {
         console.log('Message received: ' + messageData);
         clients.forEach(client => {
-            client.send(messageData);
+            client.broadcast(JSON.stringify({func:messageData}));
         });
     });
     wsClient.on('close', () => {
